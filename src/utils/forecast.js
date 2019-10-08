@@ -12,11 +12,17 @@ const forecast = (lat, long, callback) => {
         }
         else {
             const weather = {
-                dailySum: body.daily.summary,
+                dailySum: body.currently.summary,
                 temperature: body.currently.temperature,
-                percipChance: body.currently.precipProbability
+                percipChance: body.currently.precipProbability,
+                humidity: body.currently.humidity,
+                windSpeed: body.currently.windSpeed
             }
-            callback(undefined, weather.dailySum + ' Temperature is ' + weather.temperature + ' degrees F, with a ' + weather.percipChance + '% chance of rain.')
+
+            const weatherString =  weather.dailySum + '. Temperature is ' + weather.temperature + 
+                                    ' degrees F, with a ' + weather.percipChance + '% chance of rain.' +
+                                    'Humidity is at ' + weather.humidity + ', and wind speeds are ' + weather.windSpeed 
+            callback(undefined, weatherString)
         }
     })
 }
