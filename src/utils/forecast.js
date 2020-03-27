@@ -20,10 +20,12 @@ const forecast = (latitude, longitude, callback) => {
         {
             const temp = response.body.currently.temperature
             const precipProb = response.body.currently.precipProbability
+            const windSpeed = response.body.currently.windSpeed
             const data = {
                 summary: response.body.daily.data[0].summary,
                 temp: response.body.currently.temperature,
-                precipProb: response.body.currently.precipProbability
+                precipProb: response.body.currently.precipProbability,
+                windSpeed: windSpeed
             }
             callback(undefined, data)
         }

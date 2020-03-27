@@ -24,7 +24,7 @@ weatherForm.addEventListener('submit', (e) => {
             else
             {
                 messageOne.textContent = data.forecast.summary
-                messageTwo.textContent = 'It is ' + data.forecast.temp + ' degrees with a ' + data.forecast.precipProb + '% chance of rain.'
+                messageTwo.textContent = 'It is ' + data.forecast.temp + ' degrees with a ' + data.forecast.precipProb + '% chance of rain. There is a wind speed of ' + data.forecast.windSpeed
                 console.log(data)
             }
         })
